@@ -11,6 +11,11 @@ import DemoHandlingEvents from './Day2/handing-events/DemoHandingEvents';
 import DemoListsAndKeys from './Day2/lists-and-keys/DemoListsAndKeys';
 import DemoState from './Day2/state/DemoState';
 import DemoStylingComponent from './Day2/styling-component/DemoStylingComponent';
+import DemoChildrenProps from './Day3/DemoChildrenProps/DemoChildrenProps';
+import ChildComponent from './Day3/DemoProps/ChildComponent';
+import ParentComponent from './Day3/DemoProps/ParentComponent';
+import DemoProps from './Day3/DemoProps/ParentComponent';
+import Shoeshop from './Day3/shoes-shop/ShoeShop';
 function App() {
   return (
     <div className="App">
@@ -42,8 +47,17 @@ function App() {
       {/* <ChooseCarColor/> */}
 
       {/* Demo lists and keys  */}
-      <DemoListsAndKeys/>
-    
+      {/* <DemoListsAndKeys/> */}
+
+      {/* Demo Props  */}
+      {/* <ParentComponent/> */}
+
+      {/* Demo Children Props  */}
+      {/* <DemoChildrenProps/> */}
+
+      {/* Shoes shop  */}
+      <Shoeshop/>
+
       {/* <button className='btn btn-info'>Hello</button> */}
     </div>
   );
