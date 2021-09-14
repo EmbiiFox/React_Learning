@@ -16,6 +16,7 @@ import ChildComponent from './Day3/DemoProps/ChildComponent';
 import ParentComponent from './Day3/DemoProps/ParentComponent';
 import DemoProps from './Day3/DemoProps/ParentComponent';
 import Shoeshop from './Day3/shoes-shop/ShoeShop';
+import ShoeshopRedux from './Day4/shoes-shop-redux/ShoeShopRedux';
 function App() {
   return (
     <div className="App">
@@ -56,7 +57,10 @@ function App() {
       {/* <DemoChildrenProps/> */}
 
       {/* Shoes shop  */}
-      <Shoeshop/>
+      {/* <Shoeshop/> */}
+
+      {/* Shoes shop redux  */}
+      <ShoeshopRedux/>
 
       {/* <button className='btn btn-info'>Hello</button> */}
     </div>
