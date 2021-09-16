@@ -1,6 +1,8 @@
+import { type } from "jquery";
 import React, { Component } from "react";
-
-export default class ProductItem extends Component {
+import{connect} from 'react-redux';
+import {actAddToShoppingList} from '../../store/action/shoeShopAction'
+ class ProductItem extends Component {
   render() {
     const {shoe, addToShoppingList}=this.props;
     return (
@@ -17,3 +19,20 @@ export default class ProductItem extends Component {
     );
   }
 }
+// Tạo ra function để dispatch action, các function này sẽ dc map thành props component
+const  mapDispatchToProps=dispatch=>({
+    addToShoppingList:shoe=>{
+      // // Khởi tạo action gồm type( để reducer nhận diện action) và data gui723i lên reducer qua payload 
+      // const action={
+      //   type:'ADD_TO_SHOPPING_LIST',
+      //   payload:shoe,
+      // }
+      //Dispatch action lên reducer
+      // dispatch(action);
+      dispatch(actAddToShoppingList(shoe));
+    }
+  }
+);
+
+//Hàm dispatch bắt buộc tham số truyền vào là tham số thứ 2
+export default connect(null,mapDispatchToProps)(ProductItem);

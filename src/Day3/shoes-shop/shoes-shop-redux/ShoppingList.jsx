@@ -1,10 +1,14 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { actUpdateQuantity } from "../../store/action/shoeShopAction";
-import { actRemoveFromShoppingList } from "../../store/action/shoeShopAction";
-class ShopppingList extends Component {
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {
+  actUpdateQuantity,
+  actRemoveFromShoppingList,
+} from '../../store/actions/shoesShopActions';
+
+class ShoppingList extends Component {
   render() {
     const { shoppingList, updateQuantity, removeFromShoppingList } = this.props;
+
     return (
       <div
         className="modal fade"
@@ -14,7 +18,6 @@ class ShopppingList extends Component {
         aria-labelledby="modelTitleId"
         aria-hidden="true"
       >
-        {/* Thêm modal-lg  */}
         <div className="modal-dialog modal-lg" role="document">
           <div className="modal-content">
             <div className="modal-header">
@@ -29,7 +32,6 @@ class ShopppingList extends Component {
               </button>
             </div>
             <div className="modal-body">
-              {/* validation kiểm tra list có sản phẩm không  */}
               {shoppingList.length > 0 ? (
                 <table className="table">
                   <thead>
@@ -44,24 +46,26 @@ class ShopppingList extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {shoppingList.map((shoe) => {
+                    {/* Render shopping list */}
+                    {shoppingList.map(shoe => {
                       const { id, name, image, price, quantity } = shoe;
+
                       return (
                         <tr key={id}>
                           <td>{id}</td>
                           <td>{name}</td>
                           <td>
-                            <img src={image} alt="" width="40px" />
+                            <img src={image} width="40px" />
                           </td>
-                          <td>{price}</td>
+                          <td>{price}$</td>
                           <td>
                             <button
                               className="btn btn-success"
                               onClick={() => updateQuantity(id, true)}
                             >
                               +
-                            </button>{" "}
-                            {quantity}{" "}
+                            </button>{' '}
+                            {quantity}{' '}
                             <button
                               className="btn btn-danger"
                               onClick={() => updateQuantity(id, false)}
@@ -69,7 +73,7 @@ class ShopppingList extends Component {
                               -
                             </button>
                           </td>
-                          <td>{price * quantity}</td>
+                          <td>{price * quantity}$</td>
                           <td>
                             <button
                               className="btn btn-danger"
@@ -84,20 +88,20 @@ class ShopppingList extends Component {
                   </tbody>
                 </table>
               ) : (
-                <div className="text-center">
-                  THERE IS NO ITEM! LET'S SHOPPING
+                <div className="text-center my-4">
+                  There is no item! Let's shopping!
                 </div>
               )}
               {shoppingList.length > 0 && (
                 <div className="text-right">
-                  {/* Tính tổng tiền thanh toán  */}
-                  <span className="font-weight-bold">Total payment: </span>
-                  {""}
+                  <span className="font-weight-bold">Total Payment:</span>{' '}
                   <span>
+                    {/* Tính tổng tiền thanh toán */}
                     {shoppingList.reduce((total, currentValue) => {
                       return (total +=
                         currentValue.price * currentValue.quantity);
                     }, 0)}
+                    $
                   </span>
                 </div>
               )}
@@ -110,8 +114,8 @@ class ShopppingList extends Component {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-dark">
-                Check Out
+              <button type="button" className="btn btn-danger">
+                Checkout
               </button>
             </div>
           </div>
@@ -121,27 +125,20 @@ class ShopppingList extends Component {
   }
 }
 
-//, lấy dữ liệu từ store chuyển thành props component
-const mapStateToProps = (state) => ({
-  // state đại diện cho root reducer
+// Lấy dữ liệu từ store chuyển thành props của component
+const mapStateToProps = state => ({
   shoppingList: state.shoesShopReducer.shoppingList,
 });
-const mapDispatchToProps = (dispatch) => ({
+
+const mapDispatchToProps = dispatch => ({
   updateQuantity: (id, type) => {
-    // const action={
-    //   type:'UPDATE_QUANTITY',
-    //   payload:{id,type}
-    // }
     dispatch(actUpdateQuantity(id, type));
   },
-  removeFromShoppingList: (id) => {
-    // const action={
-    // type:'REMOVE_FROM_SHOPPING_LIST',
-    // payload:{id},
-    // }
+
+  removeFromShoppingList: id => {
     dispatch(actRemoveFromShoppingList(id));
   },
 });
 
-// Kết nối đến redux store(high order function): kết nối react component với redux store
-export default connect(mapStateToProps, mapDispatchToProps)(ShopppingList);
+// connect (high order function): kết nối react component với redux store
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList);
