@@ -16,6 +16,7 @@ import ChildComponent from './Day3/DemoProps/ChildComponent';
 import ParentComponent from './Day3/DemoProps/ParentComponent';
 import DemoProps from './Day3/DemoProps/ParentComponent';
 import Shoeshop from './Day3/shoes-shop/ShoeShop';
+import GameXucXac from './Day4/game-xuc-xac-redux/GameXucXac';
 import ShoesShopRedux from './Day4/shoes-shop-redux/ShoesShopRedux.jsx';
 import shoesShopReducer from './Day4/shoes-shop-redux/ShoesShopRedux.jsx';
 function App() {
@@ -61,7 +62,10 @@ function App() {
       {/* <Shoeshop/> */}
       
       {/* Shoes shop redux  */}
-      <ShoesShopRedux/>
+      {/* <ShoesShopRedux/> */}
+
+      {/* Game xúc xắc  */}
+      <GameXucXac/>
 
       {/* <button className='btn btn-info'>Hello</button> */}
     </div>

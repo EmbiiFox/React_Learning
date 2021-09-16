@@ -1,0 +1,24 @@
+.game-container{
+    background-image: url(./assets/images/bgGame.png);
+    height: 100vh;
+    font-family: 'gameXucXac';
+}
+
+@font-face {
+    font-family: 'gameXucXac';
+    src: url(./assets/font/Pony.ttf);
+}
+.btnTaiXiu{
+    height: 200px;
+    width: 200px;
+    font-size: 45px;
+    color: white;
+    background-color:rgba(0,195, 255,0.959);
+    border: none;
+    border-radius: 6px;
+   
+
+}
+.btnTaiXiuSelected{
+    box-shadow: 1px 3px 15px 12px rgba(51, 226,255,0.80) ;
+}
