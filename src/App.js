@@ -19,6 +19,9 @@ import Shoeshop from './Day3/shoes-shop/ShoeShop';
 import GameXucXac from './Day4/game-xuc-xac-redux/GameXucXac';
 import ShoesShopRedux from './Day4/shoes-shop-redux/ShoesShopRedux.jsx';
 import shoesShopReducer from './Day4/shoes-shop-redux/ShoesShopRedux.jsx';
+import DemoFormValidation from './Day5/handle-form/DemoFormValidation';
+import DemoHandleForms from './Day5/handle-form/DemoHandleForm';
+import DemoLifeCylce from './Day5/life-cycle/DemoLifeCycle';
 function App() {
   return (
     <div className="App">
@@ -65,7 +68,12 @@ function App() {
       {/* <ShoesShopRedux/> */}
 
       {/* Game xúc xắc  */}
-      <GameXucXac/>
+      {/* <GameXucXac/> */}
+
+      {/* <DemoLifeCylce/> */}
+      {/* <DemoHandleForms/> */}
+      <DemoFormValidation/>
+
 
       {/* <button className='btn btn-info'>Hello</button> */}
     </div>
